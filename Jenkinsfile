@@ -19,7 +19,16 @@ pipeline {
 				echo 'testing...'
 			}
 		}
+		stage('Performance Regression Analysis') {
+ 			when { not { branch 'master' } }
+			agent { label 'dedicatedPerformanceMachine' }
+			steps {
+				unstash 'myApp'
+				echo 'testing...'
+			}
+		}
 		stage('Approval') {
+			when { branch 'master' }
 			// no agent is used, so executors are not used up when waiting for approvals
 			agent none
 			steps {
@@ -34,6 +43,7 @@ pipeline {
 			}
 		}
 		stage('Deploy') {
+			when { branch 'master' }
 			agent any
 			steps {
 				lock(resource: 'deployApplication'){
