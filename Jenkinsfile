@@ -32,7 +32,7 @@ pipeline {
 		//		}
 				// This milestone will abort all older builds than this one
 				// so old builds don't get deployed to production
-				milestone label: 'deploy', ordinal: 2
+		//		milestone label: 'deploy', ordinal: 2
 		//	}
 		//}
 		//stage('Deploy') {
