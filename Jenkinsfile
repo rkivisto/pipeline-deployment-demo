@@ -5,7 +5,7 @@ pipeline {
 			agent any
 			steps {
 				sh 'printenv'
-				echo $env.GIT_BRANCH
+				echo "${env.GIT_BRANCH}"
 				// https://jenkins.io/blog/2016/10/16/stage-lock-milestone/
 				// The first milestone step starts tracking concurrent build order
 				//milestone label: 'build', ordinal: 1
