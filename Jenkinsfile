@@ -18,6 +18,7 @@ pipeline {
       					script: 'git --no-pager show -s --format=\'%ae\'',
       					returnStdout: true
 					).trim()
+				echo committerEmail
 				}
 				echo commiterEmail
 				echo GIT_EMAIL
