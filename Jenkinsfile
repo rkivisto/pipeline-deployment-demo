@@ -9,8 +9,8 @@ pipeline {
 			steps {
 				sh 'printenv'
 				echo GIT_BRANCH
-				GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
-				GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
+				def GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
+				def GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
 				echo GIT_EMAIL
 				// https://jenkins.io/blog/2016/10/16/stage-lock-milestone/
 				// The first milestone step starts tracking concurrent build order
