@@ -10,7 +10,7 @@ pipeline {
 				sh 'printenv'
 				echo GIT_BRANCH
 				//$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
-				sh '$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
+				//sh '$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
 				//def GIT_NAME = $(git --no-pager show -s --format='%an' $GIT_COMMIT)
 				//def GIT_EMAIL = $(git --no-pager show -s --format='%ae' $GIT_COMMIT)
 				script{
