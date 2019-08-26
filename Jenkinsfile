@@ -20,7 +20,7 @@ pipeline {
 					).trim()
 				echo GIT_COMMITTER_EMAIL
 				}
-				echo commiterEmail
+				echo GIT_COMMITTER_EMAIL
 				echo GIT_EMAIL
 				// https://jenkins.io/blog/2016/10/16/stage-lock-milestone/
 				// The first milestone step starts tracking concurrent build order
