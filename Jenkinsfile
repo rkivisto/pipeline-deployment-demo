@@ -14,11 +14,11 @@ pipeline {
 				//def GIT_NAME = $(git --no-pager show -s --format='%an' $GIT_COMMIT)
 				//def GIT_EMAIL = $(git --no-pager show -s --format='%ae' $GIT_COMMIT)
 				script{
-				def committerEmail = sh (
+				def GIT_COMMITTER_EMAIL = sh (
       					script: 'git --no-pager show -s --format=\'%ae\'',
       					returnStdout: true
 					).trim()
-				echo committerEmail
+				echo GIT_COMMITTER_EMAIL
 				}
 				echo commiterEmail
 				echo GIT_EMAIL
