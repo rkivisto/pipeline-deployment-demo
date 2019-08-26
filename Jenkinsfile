@@ -12,10 +12,12 @@ pipeline {
 				sh 'echo $(git --no-pager show -s --format='%an' $GIT_COMMIT)'
 				//def GIT_NAME = $(git --no-pager show -s --format='%an' $GIT_COMMIT)
 				//def GIT_EMAIL = $(git --no-pager show -s --format='%ae' $GIT_COMMIT)
-				committerEmail = sh (
+				script{
+				def committerEmail = sh (
       					script: 'git --no-pager show -s --format=\'%ae\'',
       					returnStdout: true
 					).trim()
+				}
 				echo commiterEmail
 				echo GIT_EMAIL
 				// https://jenkins.io/blog/2016/10/16/stage-lock-milestone/
