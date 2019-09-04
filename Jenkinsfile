@@ -1,12 +1,13 @@
 pipeline {
 	agent none
-	triggers {
-        	cron('0 9 1-7 * 1')
-    	}
+	//triggers {
+       // 	cron('0 9 1-7 * 1')
+    	//}
 	stages {
 		stage('Build') {
 			agent any
 			steps {
+				echo 'HELLO WORLD'
 				sh 'printenv'
 				echo GIT_BRANCH
 				//$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
