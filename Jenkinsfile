@@ -6,7 +6,7 @@ pipeline {
 	stages {
 		stage('Build') {
 			when{
-				branch 'master'
+				expression { branch 'master' || 'develop' }
 			}
 			agent any
 			steps {
@@ -21,8 +21,6 @@ pipeline {
 				//	).trim()
 				//echo GIT_COMMITTER_EMAIL
 				//}
-				echo GIT_COMMITTER_EMAIL
-				echo GIT_EMAIL
 			}
 		}
 		//stage('Test') {
