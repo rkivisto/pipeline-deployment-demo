@@ -5,30 +5,24 @@ pipeline {
     	//}
 	stages {
 		stage('Build') {
+			when{
+				branch 'master'
+			}
 			agent any
 			steps {
 				echo 'HELLO WORLD'
 				sh 'printenv'
 				echo GIT_BRANCH
-				//$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
-				//sh '$(git --no-pager show -s --format='%an' $GIT_COMMIT)'
-				//def GIT_NAME = $(git --no-pager show -s --format='%an' $GIT_COMMIT)
-				//def GIT_EMAIL = $(git --no-pager show -s --format='%ae' $GIT_COMMIT)
-				script{
-				def GIT_COMMITTER_EMAIL = sh (
-      					script: 'git --no-pager show -s --format=\'%ae\'',
-      					returnStdout: true
-					).trim()
-				echo GIT_COMMITTER_EMAIL
-				}
+				
+				//script{
+				//def GIT_COMMITTER_EMAIL = sh (
+      				//	script: 'git --no-pager show -s --format=\'%ae\'',
+      				//	returnStdout: true
+				//	).trim()
+				//echo GIT_COMMITTER_EMAIL
+				//}
 				echo GIT_COMMITTER_EMAIL
 				echo GIT_EMAIL
-				// https://jenkins.io/blog/2016/10/16/stage-lock-milestone/
-				// The first milestone step starts tracking concurrent build order
-				//milestone label: 'build', ordinal: 1
-				//echo 'compiling...'
-				//sh 'touch a.jar'
-				//stash includes: 'a.jar', name: 'myApp'
 			}
 		}
 		//stage('Test') {
