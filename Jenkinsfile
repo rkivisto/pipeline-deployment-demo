@@ -12,7 +12,7 @@ pipeline {
 				stash includes: 'a.jar', name: 'myApp'
 				sh 'echo "commit: ${GIT_COMMIT}"'
  				sh 'git log'
-
+				sh 'echo "CHANGE_ID: ${CHANGE_ID}"'
 			}
 		}
 		stage('Test') {
