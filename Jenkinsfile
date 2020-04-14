@@ -10,6 +10,8 @@ pipeline {
 				echo 'compiling...'
 				sh 'touch a.jar'
 				stash includes: 'a.jar', name: 'myApp'
+				echo 'commit: ${GIT_COMMIT}'
+ 				sh 'git log'
 			}
 		}
 		stage('Test') {
